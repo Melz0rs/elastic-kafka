@@ -25,9 +25,11 @@ services:
     ports:
       - "9200:9200"
     environment:
+      - node.name=elasticsearch
+      - cluster.name=docker-cluster
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
       - bootstrap.memory_lock=true
-      - cluster.initial_master_nodes=elastic_search
+      - cluster.initial_master_nodes=elasticsearch
     ulimits:
       memlock:
         soft: -1
